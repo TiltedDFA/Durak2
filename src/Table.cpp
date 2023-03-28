@@ -9,7 +9,17 @@ Table::Table(uint8_t num_players,bool deck_size_36)
     this->players_ = new Player[num_players];
     this->deck_ = new Deck(deck_size_36);
 }
-Table::~Table(){
+Table::~Table()
+{
     delete[] this->players_;
     delete this->deck_;
 }
+void Table::rotate_current_players()
+{
+    this->current_attacker_ = (this->current_attacker_ + 1) % this->num_players_;
+    this->current_defender_ = (this->current_defender_ + 1) % this->num_players_;
+}
+void Table::clear_table()
+{
+    
+}   

@@ -1,5 +1,8 @@
 #include "headers/Player.hpp"
-
+//used for the find function in return lowest val function
+static bool operator==(const Card& c, const Suit& s){
+    return c.get_suit() == s;
+}
 std::size_t Player::get_hand_size()const
 {
     return this->cards_.size();
@@ -12,18 +15,14 @@ const std::vector<Card>& Player::get_cards()const
 {
     return this->cards_;
 }
-void Player::add_card_to_hand(Card card)
-{
-    assert(this->cards_.size() < 6);
-    this->cards_.push_back(card);
-}
 Card* Player::lowest_master_suit_card()const
 {
     if(this->cards_.empty()) return nullptr;
-    auto search_condition = [](Card elm){return elm.get_suit() == Deck::get_master_suit();};
     //checks to see if the deck has any cards which are the same suit as the master suit
-    if(std::find(this->cards_.begin(),this->cards_.end(),search_condition) == this->cards_.end())
+    if(std::find(this->cards_.begin(),this->cards_.end(),Deck::get_master_suit()) == this->cards_.end())
+    {
         return nullptr;
+    }
     Card* current_lowest_card{nullptr};
     for(const Card& i : this->cards_)
     {
@@ -40,4 +39,19 @@ Card* Player::lowest_master_suit_card()const
         }
     }
     return current_lowest_card;
+}
+const Card& Player::get_card(short index)const
+{
+    return this->cards_.at(index);
+}
+Card Player::pop_card(short index)
+{
+    Card returnVal{this->cards_.at(index)};
+    this->cards_.erase(this->cards_.begin()+index);
+    return returnVal;
+}
+void Player::add_card_to_hand(Card card)
+{
+    assert(this->cards_.size() < 6);
+    this->cards_.push_back(card);
 }

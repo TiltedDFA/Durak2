@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CARD_HPP
+#define CARD_HPP
 #include <cstdint>
 #include <string>
 #include <algorithm>
@@ -42,3 +43,4 @@ private:
     Suit suit_;
     Value value_;
 };
+#endif

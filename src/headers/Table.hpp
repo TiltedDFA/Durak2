@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TABLE_HPP
+#define TABLE_HPP
 #include "Player.hpp"
 class Table
 {
@@ -6,6 +7,9 @@ public:
     Table()=delete;
     Table(uint8_t num_players,bool deck_size_36);
     ~Table();
+
+    void rotate_current_players();
+    void clear_table();
 private:
     //the cards on tables are stored as pointers since there should be
     //no need to duplicate the cards.
@@ -22,3 +26,4 @@ private:
     Player* players_;
     Deck* deck_;
 };
+#endif

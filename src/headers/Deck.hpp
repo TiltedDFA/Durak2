@@ -1,4 +1,5 @@
-#pragma once
+#ifndef DECK_HPP
+#define DECK_HPP
 #include "Card.hpp"
 #include <vector>
 #include <random>
@@ -22,3 +23,4 @@ private:
     inline static Suit master_suit_;
     std::vector<Card> deck_;
 };
+#endif
