@@ -1,15 +1,15 @@
 /**
- * @file Card.hpp
- * @author Malik Tremain (MalikTremain1@gmail.com)
- * @brief Definion of card, suit and value types
- * @version 0.1
- * @date 2023-03-29
  * This file contains the definition of the Card class which will be used
  * to represent cards throught the program. It has support for some basic
  * operator overloads and has a toString method which will be used to 
  * display the cards later in the graphics section.
  * This file also definess enumarations for suit and value which are components
  * of the card class.
+ * @file Card.hpp
+ * @author Malik Tremain (MalikTremain1@gmail.com)
+ * @brief Definion of card, suit and value types
+ * @version 0.1
+ * @date 2023-03-29
  * @copyright Copyright (c) 2023
  */
 #ifndef CARD_HPP
@@ -19,8 +19,11 @@
 #include <string> // for the toString method
 #include <algorithm> // for the swap overload
 /**
- * @enumclass Suit  
+ * @enum Suit  
  * @brief Represents the suits that can be stored in card class
+ * 
+ * The underlying type of this enum class is uint8_t since it will 
+ * not need to represent a large range of numbers.
  */
 enum class Suit:uint8_t{
     clubs = 0,
@@ -29,8 +32,11 @@ enum class Suit:uint8_t{
     diamonds
 };
 /**
- * @enumclass Value  
+ * @enum Value  
  * @brief Represents the values that can be stored in card class
+ * 
+ * The underlying type of this enum class is uint8_t since it will 
+ * not need to represent a large range of numbers.
  */
 enum class Value:uint8_t{
     two=0,
@@ -118,7 +124,18 @@ public:
      */
     [[nodiscard]]std::string to_string()const noexcept;
 private:
-    Suit suit_; //The suit of the current card
+    /**
+     * @brief stores the suit.
+     * 
+     * This uses the Suit enum class to represent a suit value.
+     */
+    Suit suit_; 
+    /**
+     * @brief stores the value of the card.
+     * 
+     * This uses the Value enum class to reprent the value of the card.
+     * Values stored will be numeric cards as well as picture cards.
+     */
     Value value_; // The value of the current card
 };
 #endif

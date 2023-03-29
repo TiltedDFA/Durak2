@@ -1,3 +1,15 @@
+/**
+ * 
+ * 
+ * @file Table.hpp
+ * @author Malik Tremain (MalikTremain1@gmail.com)
+ * @brief Definion of the Table class. This will do most of the heavy lifiting for Durak's game logic.
+ * @version 0.1
+ * @date 2023-03-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef TABLE_HPP
 #define TABLE_HPP
 #include "Player.hpp"
@@ -30,7 +42,3 @@ private:
     Deck* deck_;
 };
 #endif
-/**
- * @brief 
- * 
- */

@@ -1,7 +1,7 @@
 PROJECT_NAME             = "Durak"
 PROJECT_NUMBER           = 0.1.0
 DOXYFILE_ENCODING        = UTF-8
-INPUT                    = ./src/headers
+INPUT                    = ./src
 OUTPUT_DIRECTORY         = ./docs
 RECURSIVE                = YES
 GENERATE_TAGFILE         = Durak2.tag

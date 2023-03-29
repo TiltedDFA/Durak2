@@ -52,7 +52,7 @@ Card* Player::pop_card(short index)
     this->cards_.erase(this->cards_.begin()+index);
     return returnVal;
 }
-void Player::add_card_to_hand(Card card)
+void Player::add_card_to_hand(const Card& card)
 {
     assert(this->cards_.size() < 6);
     this->cards_.push_back(card);
