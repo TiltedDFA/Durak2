@@ -44,9 +44,11 @@ const Card& Player::get_card(short index)const
 {
     return this->cards_.at(index);
 }
-Card Player::pop_card(short index)
+Card* Player::pop_card(short index)
 {
-    Card returnVal{this->cards_.at(index)};
+    if(static_cast<std::size_t>(index) >= this->cards_.size()) return nullptr;
+
+    Card* returnVal{new Card(this->cards_.at(index))};
     this->cards_.erase(this->cards_.begin()+index);
     return returnVal;
 }

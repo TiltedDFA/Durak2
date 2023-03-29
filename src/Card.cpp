@@ -1,17 +1,32 @@
 #include "headers/Card.hpp"
+Card::Card(Suit suit,Value value)noexcept:
+    suit_(suit),value_(value){}
+
+Card::Card(const Card& other)noexcept:
+    suit_(other.suit_),value_(other.value_){}
+
+Card& Card::operator=(const Card& other)noexcept
+{
+    if(this == &other) return *this;
+    this->suit_  = other.suit_;
+    this->value_ = other.value_;
+    return *this;
+}
+Card& Card::operator=(Card&& other)noexcept
+{
+    if(this == &other) return *this;
+    this->suit_  = other.suit_;
+    this->value_ = other.value_;
+    return *this;
+}
 Suit Card::get_suit()const noexcept
 {
     return this->suit_;
 }
-
 Value Card::get_value()const noexcept
 {
     return this->value_;
 }
-
-Card::Card(Suit suit,Value value)noexcept:
-    suit_(suit),value_(value){}
-
 std::string Card::to_string()const noexcept
 {
     std::string returnValue{};

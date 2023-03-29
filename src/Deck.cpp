@@ -19,16 +19,13 @@ Deck::Deck(bool size_is_36){
 Suit Deck::get_master_suit(){
     return master_suit_;
 }
-void Deck::set_master_suit(Suit new_suit){
-    master_suit_ = new_suit;
-}
 Card Deck::pop(){
     assert(!this->deck_.empty());
     Card last_elm = this->deck_.back();
     this->deck_.pop_back();
     return last_elm;
 }
-Card Deck::peek()const{
+const Card& Deck::peek()const{
     assert(!this->deck_.empty());
     return this->deck_.back();
 }
