@@ -1,7 +1,6 @@
 #include "headers/Deck.hpp"
-
 Deck::Deck(bool size_is_36){
-
+    DBG_CTOR("Deck",this);
     this->deck_.reserve(size_is_36 ? 36 : 52);
     for(uint8_t suit = 0; suit <  4;++suit)
     {
@@ -15,6 +14,10 @@ Deck::Deck(bool size_is_36){
 	std::shuffle(this->deck_.begin(), this->deck_.end(), rng);
     std::uniform_int_distribution<short> dis(0,3);
     this->master_suit_ = static_cast<Suit>(dis(rng));
+}
+Deck::~Deck()
+{
+    DBG_DTOR("Deck",this);
 }
 Suit Deck::get_master_suit(){
     return master_suit_;

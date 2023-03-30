@@ -13,6 +13,7 @@
 #ifndef DECK_HPP
 #define DECK_HPP
 
+#include "Debug.hpp"
 #include "Card.hpp" //For the card class
 #include <vector>   //For the vector data structure
 #include <random>   //Used for the random generator. Used for finding the master suit and shuffling the deck.
@@ -48,9 +49,9 @@ public:
     /**
      * @brief Destroys the Deck object
      * 
-     * It is the default version of the destructor
+     * Non-default for debugging purposes
      */
-    ~Deck()=default;
+    ~Deck();
 
     /**
      * @brief Returns the master suit

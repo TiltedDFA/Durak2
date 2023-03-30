@@ -3,6 +3,14 @@
 static bool operator==(const Card& c, const Suit& s){
     return c.get_suit() == s;
 }
+Player::Player()
+{
+    DBG_CTOR("Player",this);
+}
+Player::~Player()
+{
+    DBG_DTOR("Player",this);
+}
 std::size_t Player::get_hand_size()const
 {
     return this->cards_.size();

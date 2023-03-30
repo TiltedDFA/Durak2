@@ -29,15 +29,15 @@ public:
     /**
      * @brief Construct a new Player object.
      *
-     * It is defaulted.
+     * Non-default for debugging
      */
-    Player() = default;
+    Player();
     /**
      * @brief Destroys the Player object
      *
-     * It is defaulted.
+     *Non-default for debugging
      */
-    ~Player() = default;
+    ~Player();
     /**
      * @brief Returns number of cards currently in player's hand.
      *

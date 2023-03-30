@@ -3,6 +3,7 @@ Table::Table(uint8_t num_players,bool deck_size_36)
     :num_players_(num_players),attackers_turn_(true),
     current_attacker_(0),current_defender_(0)
 {
+    DBG_CTOR("Table",this);
     assert(num_players > 1);
     this->attacking_cards_.fill(nullptr);
     this->defending_cards_.fill(nullptr);
@@ -18,6 +19,7 @@ Table::~Table()
         delete this->attacking_cards_.at(i);
         delete this->defending_cards_.at(i);
     }
+    DBG_DTOR("Table",this);
 }
 void Table::set_current_players(uint8_t attackPlyrIndex)
 {

@@ -5,11 +5,11 @@
 int main()
 {
     Resource_Manager instance1;
+    Table instance2(2,true);
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "SFML works!");
-    sf::CircleShape shape(100.f);
-    Button instance{sf::Vector2f(0,0),sf::Vector2f(100,100),sf::Color::White,
-    sf::Color::Black,sf::Color::Blue,"This is button"};
-    shape.setFillColor(sf::Color::Green);
+    Button instance{sf::Vector2f(250,400),sf::Vector2f(500,200),sf::Color::White,
+    sf::Color::Cyan,sf::Color::Yellow,"This is button"};
+    window.setFramerateLimit(60);
     while (window.isOpen())
     {
         sf::Event event;
@@ -18,9 +18,10 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        instance.update(window);
 
         window.clear();
-        window.draw(shape);
+        instance.draw(window);
         window.display();
     }
 

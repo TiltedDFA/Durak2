@@ -1,11 +1,18 @@
 #include "headers/ResourceManager.hpp"
 #include <assert.h>
 
-Resource_Manager::Resource_Manager() {
+Resource_Manager::Resource_Manager() 
+{
+	DBG_CTOR("Resource Manager",this);
 	assert(m_s_instance == nullptr);
 	m_s_instance = this;
 }
-sf::Texture& Resource_Manager::get_texture(const std::string& name) {
+Resource_Manager::~Resource_Manager()
+{
+	DBG_DTOR("Resource Manager",this);
+}
+sf::Texture& Resource_Manager::get_texture(const std::string& name) 
+{
 	auto& texture_map = m_s_instance->m_textures;
 	auto keyValuePair = texture_map.find(name);
 
@@ -22,7 +29,8 @@ sf::Texture& Resource_Manager::get_texture(const std::string& name) {
 		return texture;
 	}
 }
-sf::Font& Resource_Manager::get_font(const std::string& font_name) {
+sf::Font& Resource_Manager::get_font(const std::string& font_name) 
+{
 	auto& font_map = m_s_instance->m_fonts;
 	auto keyValuePair = font_map.find(font_name);
 	if (keyValuePair != font_map.end()) {

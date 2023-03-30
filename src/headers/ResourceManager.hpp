@@ -2,10 +2,12 @@
 #define RESOURCEMANAGER_HPP
 
 #include <SFML/Graphics.hpp>
+#include "Debug.hpp"
 class Resource_Manager
 {	
 public:
 	Resource_Manager();
+	~Resource_Manager();
 	Resource_Manager(const Resource_Manager& other) = delete;//deleting copy construct
 	void operator=(const Resource_Manager& other) = delete;
 	Resource_Manager(const Resource_Manager&& other) = delete;//deleting move construct
