@@ -81,15 +81,17 @@ public:
      * conditions are true. Else it will iterate through all of the cards and return the a pointer
      * to the current card in the player's hand where the lowest value was found.
      */
-    [[nodiscard]] Card *lowest_master_suit_card() const;
+    [[nodiscard]] Card* lowest_master_suit_card() const;
     /**
      * @brief returns the card at the specified index.
      *
      * @param index - the index of the data you want.
-     * @throw std::out_of_range - thrown by the vector's .at() function if the index is out of bounds
-     * @return const Card& returns a reference to the card at the requested index
+     *
+     * @return const Card* returns a pointer to the card at the requested index.
+     * 
+     * This will return a nullptr if the index is out of bounds.
      */
-    [[nodiscard]] const Card &get_card(short index) const;
+    [[nodiscard]]const Card* get_card(short index) const;
     /**
      * @brief removes and returns the card at the specified index.
      * 

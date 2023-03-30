@@ -21,17 +21,23 @@ public:
     ~Table();
 
     void rotate_current_players();
-    bool check_valid_move(Card* attacking_card,Card* defending_card);
-    bool add_attacking_card(int index);
-    bool add_defending_card(int index);
+    void set_current_players(uint8_t attackPlyrIndex);
+    bool is_attacking_cards_empty()const;
+    bool check_valid_defending_move(const Card* attacking_card,const Card* defending_card)const;
+    bool check_valid_attacking_move(const Card* attacking_card, int target_index)const;
+    bool add_attacking_card(int index_in_hand, int target_table_index);
+    bool add_defending_card(int index_in_hand, int target_table_index);
     void clear_table();
+
+    const std::array<const Card*,6>& get_attacking_cards()const;
+    const std::array<const Card*,6>& get_defending_cards()const;
 private:
     //the cards on tables are stored as pointers since there should be
     //no need to duplicate the cards.
     const uint8_t num_players_;
-    bool attackers_turn;
-    std::array<Card*,6> attacking_cards_;
-    std::array<Card*,6> defending_cards_;
+    bool attackers_turn_;
+    std::array<const Card*,6> attacking_cards_;
+    std::array<const Card*,6> defending_cards_;
     //these will hold the indexes of the current 
     //players from the players arrays
     uint8_t current_attacker_;

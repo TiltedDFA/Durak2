@@ -18,7 +18,6 @@ const std::vector<Card>& Player::get_cards()const
 Card* Player::lowest_master_suit_card()const
 {
     if(this->cards_.empty()) return nullptr;
-    //checks to see if the deck has any cards which are the same suit as the master suit
     if(std::find(this->cards_.begin(),this->cards_.end(),Deck::get_master_suit()) == this->cards_.end())
     {
         return nullptr;
@@ -40,9 +39,10 @@ Card* Player::lowest_master_suit_card()const
     }
     return current_lowest_card;
 }
-const Card& Player::get_card(short index)const
+const Card* Player::get_card(short index)const
 {
-    return this->cards_.at(index);
+    if(static_cast<std::size_t>(index) >= this->cards_.size()) return nullptr;
+    return &this->cards_.at(index);
 }
 Card* Player::pop_card(short index)
 {

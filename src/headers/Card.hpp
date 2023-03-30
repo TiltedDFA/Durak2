@@ -30,7 +30,7 @@ enum class Suit:uint8_t{
     spades,
     hearts,
     diamonds
-};
+}; 
 /**
  * @enum Value  
  * @brief Represents the values that can be stored in card class
