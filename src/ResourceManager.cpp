@@ -34,6 +34,7 @@ sf::Font& Resource_Manager::get_font(const std::string& font_name)
 	auto& font_map = m_s_instance->m_fonts;
 	auto keyValuePair = font_map.find(font_name);
 	if (keyValuePair != font_map.end()) {
+		DBG_MSG_AT("Font loaded from memory",Resource_Manager::m_s_instance);
 		return keyValuePair->second;
 	}
 	else {
@@ -42,6 +43,7 @@ sf::Font& Resource_Manager::get_font(const std::string& font_name)
 		{
 			throw std::runtime_error("FAILED TO LOAD FONT");
 		}
+		DBG_MSG_AT("Font loaded from file",Resource_Manager::m_s_instance);
 		return font;
 	}
 }

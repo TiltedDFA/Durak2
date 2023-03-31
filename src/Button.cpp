@@ -2,6 +2,8 @@
 
 Button::Button( const sf::Vector2f& position,
                 const sf::Vector2f& size,
+                const sf::Vector2f& txt_pos,
+                const unsigned int  char_size,
                 const sf::Color& idle,       
                 const sf::Color& hover,
                 const sf::Color& press,
@@ -13,13 +15,13 @@ Button::Button( const sf::Vector2f& position,
     this->button_body_.setSize(size);
     this->button_body_.setPosition(position);
     this->button_body_.setOutlineThickness(5.0f);
-    this->button_body_.setFillColor(idle);
+    this->button_body_.setFillColor(hover);
     this->button_body_.setOutlineColor(sf::Color::Black);
 
     this->button_text_.setFont(Resource_Manager::get_font(std::string(FONT_PATH)));
-    this->button_text_.setPosition(sf::Vector2f(position.x + (size.x/8),position.y + (size.y/3)));
+    this->button_text_.setPosition(txt_pos);
     this->button_text_.setOutlineThickness(2.0f);
-    this->button_text_.setCharacterSize(size.x/10);
+    this->button_text_.setCharacterSize(char_size);
     this->button_text_.setOutlineColor(sf::Color::Black);
     this->button_text_.setFillColor(this->idle_colour_);
     this->button_text_.setString(txt_msg);
@@ -41,14 +43,17 @@ void Button::update(const sf::RenderWindow& window)
     if(!mouse_colides) 
     {
         this->button_body_.setFillColor(this->idle_colour_);
+        this->button_text_.setFillColor(this->hover_colour_);
         return;
     }
     if(!sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         this->button_body_.setFillColor(this->hover_colour_);
+        this->button_text_.setFillColor(this->idle_colour_);
         return;
     }
     this->button_body_.setFillColor(this->press_colour_);
+    this->button_text_.setFillColor(this->idle_colour_);
 }
 
 void Button::draw(sf::RenderWindow& window)const

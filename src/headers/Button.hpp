@@ -17,6 +17,17 @@
 #include "ResourceManager.hpp"
 #include <string_view>
 #include <SFML/Graphics.hpp>
+
+namespace DRK_COL
+{
+    static sf::Color Grey(130, 130, 130, 255);
+    static sf::Color LightGrey(200, 200, 200, 255);
+    static sf::Color Blue(0,121,241,255);
+    static sf::Color Red(230,41,55,255);
+    static sf::Color Orange(255,203,0,255);
+    static sf::Color SkyBlue(102,191,255,255);
+    static sf::Color CasinoGreen(42, 107, 18,255);
+}
 /**
  * @brief This describes the path from the .exe to the font
  * 
@@ -34,6 +45,8 @@ public:
      * 
      * @param position  The position where you want the button to be (cord of top left corner).
      * @param size      The size of the button.
+     * @param txt_pos   The positon that you would like to place the text in
+     * @param char_size This is the size of the character in the text
      * @param idle      This is the colour you want the button to show when it's inactive.
      * @param hover     This is the colour you want the button to show when it's hovered over with the mouse.  
      * @param press     This is the colour you want the button to show when it's pressed.
@@ -45,10 +58,12 @@ public:
      */
     Button( const sf::Vector2f& position,
             const sf::Vector2f& size,
-            const sf::Color& idle,       
-            const sf::Color& hover,
-            const sf::Color& press,
-            const std::string& txt_msg);
+            const sf::Vector2f& txt_pos,
+            const unsigned int  char_size,
+            const sf::Color&    idle,       
+            const sf::Color&    hover,
+            const sf::Color&    press,
+            const std::string&  txt_msg);
     /**
      * @brief Destroy the Button object.
      * This d-tor is mainly used for debugging purposes with tracking object life time.
