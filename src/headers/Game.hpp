@@ -2,7 +2,6 @@
 #define GAME_HPP
 
 #include "Table.hpp"
-#include "Screen.hpp"
 #include "MainMenu.hpp"
 #include <stack>
 #include <SFML/Graphics.hpp>
@@ -13,7 +12,7 @@ public:
     ~Game();
 
     void run();
-
+    void add_screen_to_stack(Screen* screen);
     void pop_screen_stack();
 private:
     sf::RenderWindow window_;

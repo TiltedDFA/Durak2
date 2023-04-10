@@ -14,6 +14,10 @@ Game::~Game()
         pop_screen_stack();
     }
 }
+void Game::add_screen_to_stack(Screen* screen)
+{
+    this->screen_stack_.push(screen);
+}
 void Game::pop_screen_stack()
 {
     delete this->screen_stack_.top();
@@ -38,7 +42,7 @@ void Game::run()
                 // window.setView(sf::View({0,0,static_cast<float>(event.size.width),static_cast<float>(event.size.height)}));
                 }
             }
-            this->screen_stack_.top()->handle_input(event);
+            this->screen_stack_.top()->handle_input(event,this->window_);
             this->screen_stack_.top()->update(this->window_);
             this->window_.clear();
             this->screen_stack_.top()->draw(this->window_);

@@ -1,6 +1,8 @@
 #include "headers/MainMenu.hpp"
-
-Main_Menu::Main_Menu(Game const* instance) :
+//#include "headers/GameScreen.hpp"
+#include "headers/Game.hpp"
+#include "GameScreen.hpp"
+Main_Menu::Main_Menu(Game* instance) :
      Screen(instance),
      background_
      (
@@ -30,7 +32,7 @@ Main_Menu::Main_Menu(Game const* instance) :
      ),
      title_
      (
-          sf::Vector2f(100.0f,100.0f),
+          sf::Vector2f(150.0f,100.0f),
           sf::Vector2f(1200.0f,400.0f),
           sf::Vector2f(320.0f,150.0f),
           250u,
@@ -40,7 +42,7 @@ Main_Menu::Main_Menu(Game const* instance) :
           "DURAK"
      )
      {
-          DBG_CTOR("menu", this);
+          DBG_CTOR("Main Menu", this);
           this->background_.setPosition({0,0});
           this->background_.setFillColor(DRK_COL::CasinoGreen);
      }
@@ -48,9 +50,20 @@ Main_Menu::~Main_Menu()
 {
      DBG_DTOR("Main Menu", this);  
 }
-void Main_Menu::handle_input(const sf::Event& event)
+void Main_Menu::handle_input(const sf::Event& event,const sf::RenderWindow& window)
 {
-
+     switch (event.type)
+     {
+     case sf::Event::EventType::MouseButtonPressed:
+          if(this->start_game_.is_pressed(window,sf::Mouse::Left))
+          {
+               this->game_instance_->add_screen_to_stack(new GameScreen(this->game_instance_));
+          }
+          break;
+     
+     default:
+          break;
+     }
 }
 void Main_Menu::update(const sf::RenderWindow& window)
 {

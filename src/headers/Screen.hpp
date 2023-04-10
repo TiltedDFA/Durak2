@@ -13,14 +13,14 @@ class Game;//forward declaration
 class Screen
 {
 public:
-    Screen(Game const* instance) : game_instance_(instance){}
+    Screen(Game* instance) : game_instance_(instance){}
 
     virtual ~Screen(){}
-    virtual void handle_input(const sf::Event& event)=0;
+    virtual void handle_input(const sf::Event& event, const sf::RenderWindow& window)=0;
     virtual void update(const sf::RenderWindow& window)=0;
     virtual void draw(sf::RenderWindow& window)=0;
 protected:
-    Game const* game_instance_;
+    Game* game_instance_;
 };
 
 #endif

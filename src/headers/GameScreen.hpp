@@ -1,23 +1,17 @@
-#ifndef MAINMENU_HPP
-#define MAINMENU_HPP
+#ifndef GAMESCREEN_HPP
+#define GAMESCREEN_HPP
 
 #include "Screen.hpp"
 
-class Main_Menu : public Screen
+class GameScreen : public Screen
 {
 public:
-    Main_Menu(Game* instance);
-    ~Main_Menu()override;
+    GameScreen(Game* instance);
+    ~GameScreen()override;
     void handle_input(const sf::Event& event,const sf::RenderWindow& window)override;
     void update(const sf::RenderWindow& window)override;
     void draw(sf::RenderWindow& window)override;
 private:
     sf::RectangleShape background_;
-    Button start_game_;
-    Button settings_;
-    Button title_;
 };
-
-
-
 #endif

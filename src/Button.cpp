@@ -30,7 +30,8 @@ Button::~Button()
 {
     DBG_DTOR("Button",this);
 }
-inline bool Button::is_pressed(const sf::RenderWindow& window,const sf::Mouse::Button& button)const{
+bool Button::is_pressed(const sf::RenderWindow& window,const sf::Mouse::Button& button)const
+{
     const bool mouse_colides = this->button_body_.getGlobalBounds().contains(
         sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
     return (sf::Mouse::isButtonPressed(button) && mouse_colides);
