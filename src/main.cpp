@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
-#include "headers/Game.hpp"
+#include "headers/Debug.hpp"
+#include "headers/Button.hpp"
 int __MAIN
 {
-   Game game;
-   game.run();
-}
+   return 0;
+};
