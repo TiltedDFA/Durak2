@@ -17,7 +17,6 @@ Button::Button( const sf::Vector2f& position,
     this->button_body_.setOutlineThickness(5.0f);
     this->button_body_.setFillColor(hover);
     this->button_body_.setOutlineColor(sf::Color::Black);
-
     this->button_text_.setFont(Resource_Manager::get_font(std::string(FONT_PATH)));
     this->button_text_.setPosition(txt_pos);
     this->button_text_.setOutlineThickness(2.0f);
