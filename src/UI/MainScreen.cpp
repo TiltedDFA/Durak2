@@ -48,9 +48,9 @@ MainScreen::~MainScreen()
 {
     DBG_DTOR("Main Menu", this);
 }
-void MainScreen::HandleEvent(const sf::Event& event,_Screens& screen)
+_Screens MainScreen::HandleEvent(const sf::Event& event)
 {
-
+    return _Screens::NOCHANGE;
 }
 void MainScreen::UpdateScreen(const sf::RenderWindow& window)
 {

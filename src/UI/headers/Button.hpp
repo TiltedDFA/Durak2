@@ -13,8 +13,8 @@
 #ifndef BUTTON_HPP
 #define BUTTON_HPP
 
-#include "Debug.hpp"
-#include "ResourceManager.hpp"
+#include "../../Core/headers/Debug.hpp"
+#include "../../Core/headers/ResourceManager.hpp"
 #include <string_view>
 #include <SFML/Graphics.hpp>
 

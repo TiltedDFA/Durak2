@@ -8,8 +8,8 @@ FetchContent_Declare(SFML
     GIT_TAG 2.6.x)
 FetchContent_MakeAvailable(SFML)
 
-file(GLOB MY_SOURCES "src/*.cpp")
 
+file(GLOB_RECURSE MY_SOURCES "src/**.cpp")
 
 option(ENABLE_CLANG_TIDY "Run Clang-Tidy with the build (default: OFF)" OFF)
 if(ENABLE_CLANG_TIDY)

@@ -1,11 +1,11 @@
 #ifndef SCREEN_HPP
 #define SCREEN_HPP
-#include "Debug.hpp"
-#include "SFML/Graphics.hpp"
+#include "../../Core/headers/Debug.hpp"
+#include "./SFML/Graphics.hpp"
 
 enum class _Screens:uint8_t
 {
-    NULLSCREEN = 0,
+    NOCHANGE = 0,
     MAIN_MENU,
     SETTINGS_SCREEN,
     GAME_SCREEN
@@ -18,7 +18,7 @@ public:
 public:
     Screen(){};
     virtual ~Screen(){};
-    virtual void HandleEvent(const sf::Event& event,_Screens& screen)=0;
+    virtual _Screens HandleEvent(const sf::Event& event)=0;
     virtual void UpdateScreen(const sf::RenderWindow& window)=0;
     virtual void RenderScreen(sf::RenderWindow& window)const=0;
 };

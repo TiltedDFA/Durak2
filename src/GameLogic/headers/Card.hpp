@@ -18,7 +18,7 @@
 #include <cstdint> //for uint8_t
 #include <string> // for the toString method
 #include <algorithm> // for the swap overload
-#include "Debug.hpp"
+#include "../../Core/headers/Debug.hpp"
 /**
  * @enum Suit  
  * @brief Represents the suits that can be stored in card class
