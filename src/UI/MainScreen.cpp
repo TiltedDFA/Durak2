@@ -2,6 +2,7 @@
 
 MainScreen::MainScreen()
     :
+    Screen(),
     background_
     (
         sf::Vector2f(Screen::WIDTH,Screen::HEIGHT)

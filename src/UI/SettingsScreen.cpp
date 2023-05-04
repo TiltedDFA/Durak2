@@ -1,7 +1,9 @@
 #include "headers/SettingsScreen.hpp"
 
 SettingsScreen::SettingsScreen()
-: background_(sf::Vector2f(Screen::WIDTH,Screen::HEIGHT))
+: 
+Screen(),
+background_(sf::Vector2f(Screen::WIDTH,Screen::HEIGHT))
 {
     DBG_CTOR("Settings Screen", this);
     this->background_.setPosition({0,0});
@@ -17,7 +19,7 @@ _Screens SettingsScreen::HandleEvent(const sf::Event& event,const sf::RenderWind
 }
 void SettingsScreen::UpdateScreen(const sf::RenderWindow& window)
 {
-
+    
 }
 void SettingsScreen::RenderScreen(sf::RenderWindow& window)const 
 {

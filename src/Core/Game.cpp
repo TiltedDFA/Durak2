@@ -1,6 +1,5 @@
 #include "headers/Game.hpp"
 Game::Game()
-:table_(2,true)
 {
     DBG_CTOR("Game", this);
     this->window_.create(sf::VideoMode(Screen::WIDTH,Screen::HEIGHT), "Durak", sf::Style::Titlebar);
