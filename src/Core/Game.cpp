@@ -20,6 +20,8 @@ void Game::run()
         {
             if(event.type == sf::Event::Closed) window_.close();
         }
+        current_screen_->HandleEvent(event);
+
         window_.clear();
         current_screen_->UpdateScreen(window_);
         current_screen_->RenderScreen(window_);

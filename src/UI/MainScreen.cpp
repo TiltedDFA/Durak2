@@ -8,10 +8,10 @@ MainScreen::MainScreen()
     ),
     logo_
     (
-        sf::Vector2f(150.0f,100.0f),
-        sf::Vector2f(1200.0f,400.0f),
-        sf::Vector2f(320.0f,150.0f),
-        250u,
+        sf::Vector2f(Screen::WIDTH/5,Screen::HEIGHT/12),
+        sf::Vector2f(Screen::WIDTH/1.6,Screen::HEIGHT/2.5),
+        sf::Vector2f(Screen::WIDTH/3,Screen::HEIGHT/5),
+        static_cast<unsigned>((Screen::WIDTH*Screen::HEIGHT)/8200),
         DRK_COL::Red,
         DRK_COL::Orange,
         DRK_COL::Orange,
@@ -19,10 +19,10 @@ MainScreen::MainScreen()
     ),
     start_
     (
-        sf::Vector2f(500.0f,550.0f),
-        sf::Vector2f(500.0f,150.0f),
-        sf::Vector2f(645.0f,580.0f),
-        70u,
+        sf::Vector2f(Screen::WIDTH/4,Screen::HEIGHT/1.8),
+        sf::Vector2f(Screen::WIDTH/2,Screen::HEIGHT/7.2),
+        sf::Vector2f(Screen::WIDTH/2.5,Screen::HEIGHT/1.74),
+        static_cast<unsigned>((Screen::WIDTH*Screen::HEIGHT)/15'000),
         DRK_COL::Blue,
         DRK_COL::SkyBlue,
         DRK_COL::SkyBlue,
@@ -30,10 +30,10 @@ MainScreen::MainScreen()
     ),
     settings_
     (
-        sf::Vector2f(500.0f,750.0f),
-        sf::Vector2f(500.0f,150.0f),
-        sf::Vector2f(600.0f,775.0f),
-        70u,
+        sf::Vector2f(Screen::WIDTH/4,Screen::HEIGHT/1.3),
+        sf::Vector2f(Screen::WIDTH/2,Screen::HEIGHT/7.2),
+        sf::Vector2f(Screen::WIDTH/2.8,Screen::HEIGHT/1.27),
+        static_cast<unsigned>((Screen::WIDTH*Screen::HEIGHT)/15'000),
         DRK_COL::Blue,
         DRK_COL::SkyBlue,
         DRK_COL::SkyBlue,

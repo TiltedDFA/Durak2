@@ -13,8 +13,8 @@ enum class _Screens:uint8_t
 class Screen
 {
 public:
-    static constexpr unsigned HEIGHT = 1080;
-    static constexpr unsigned WIDTH = 1920;
+    static constexpr unsigned WIDTH = 1000;
+    static constexpr unsigned HEIGHT = 1000;
 public:
     Screen(){};
     virtual ~Screen(){};
