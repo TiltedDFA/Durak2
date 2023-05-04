@@ -48,8 +48,11 @@ MainScreen::~MainScreen()
 {
     DBG_DTOR("Main Menu", this);
 }
-_Screens MainScreen::HandleEvent(const sf::Event& event)
+_Screens MainScreen::HandleEvent(const sf::Event& event,const sf::RenderWindow& window)
 {
+    if(event.type != event.MouseButtonPressed) return _Screens::NOCHANGE;
+    if(this->settings_.is_pressed(window,sf::Mouse::Left)) return _Screens::SETTINGS_SCREEN;
+    if(this->start_.is_pressed(window,sf::Mouse::Left)) return _Screens::GAME_SCREEN;
     return _Screens::NOCHANGE;
 }
 void MainScreen::UpdateScreen(const sf::RenderWindow& window)

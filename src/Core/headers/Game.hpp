@@ -1,9 +1,10 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "../../UI/headers/Screen.hpp"
 #include "../../UI/headers/MainScreen.hpp"
+#include "../../UI/headers/SettingsScreen.hpp"
 #include "./SFML/Graphics.hpp"
+#include "../../GameLogic/headers/Table.hpp"
 #include "Debug.hpp"
 #include "ResourceManager.hpp"
 
@@ -17,6 +18,7 @@ private:
     sf::RenderWindow window_;
     Resource_Manager RM_instance_;
     Screen* current_screen_;
+    Table table_;
 };
 
 

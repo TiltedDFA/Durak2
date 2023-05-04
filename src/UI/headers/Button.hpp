@@ -77,7 +77,7 @@ public:
      * @return true if the mouse is hovering over the button and the input mouseb utton is pressed.
      * @return false if the true conditon is not met.
      */
-    inline bool is_pressed(const sf::RenderWindow& window,const sf::Mouse::Button& button)const;
+    bool is_pressed(const sf::RenderWindow& window,const sf::Mouse::Button& button)const;
     /**
      * @brief used to update the button.
      * Used to update the button colour based on it's state detirmined by the mouse.

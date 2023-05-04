@@ -18,7 +18,7 @@ public:
 public:
     Screen(){};
     virtual ~Screen(){};
-    virtual _Screens HandleEvent(const sf::Event& event)=0;
+    virtual _Screens HandleEvent(const sf::Event& event,const sf::RenderWindow& window)=0;
     virtual void UpdateScreen(const sf::RenderWindow& window)=0;
     virtual void RenderScreen(sf::RenderWindow& window)const=0;
 };
