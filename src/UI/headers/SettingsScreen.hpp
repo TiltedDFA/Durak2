@@ -3,7 +3,7 @@
 
 #include "Screen.hpp"
 #include "Button.hpp"
-
+//need to rethink the file writing system
 class SettingsScreen : public Screen
 {
 public:
@@ -14,8 +14,6 @@ public:
     void RenderScreen(sf::RenderWindow& window)const override;
 private:
     sf::RectangleShape background_;
-    Button deckSize36_;
-    Button deckSize52_;
 };
 
 

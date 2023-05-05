@@ -32,7 +32,6 @@ namespace DRK_COL
  * @brief This describes the path from the .exe to the font
  * 
  */
-constexpr std::string_view FONT_PATH{"../assets/Retron2000.ttf"};
 /**
  * @class Button
  * @brief General purpose button for gui

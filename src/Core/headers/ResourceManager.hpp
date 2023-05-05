@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Debug.hpp"
+constexpr std::string_view FONT_PATH{"../assets/Retron2000.ttf"};
 class Resource_Manager
 {	
 public:

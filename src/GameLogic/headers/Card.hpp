@@ -19,6 +19,8 @@
 #include <string> // for the toString method
 #include <algorithm> // for the swap overload
 #include "../../Core/headers/Debug.hpp"
+#include "../../Core/headers/ResourceManager.hpp"
+#include <SFML/Graphics.hpp>
 /**
  * @enum Suit  
  * @brief Represents the suits that can be stored in card class
@@ -75,7 +77,7 @@ public:
      * @brief Destroy the Card object
      * It is the default implamentation
      */
-    ~Card()=default;
+    ~Card();
     /**
      * @brief Copy constructor of card objects
      * 
@@ -124,6 +126,11 @@ public:
      * it is meant to be displayed.
      */
     [[nodiscard]]std::string to_string()const noexcept;
+    void delete_sprite();
+    void add_sprite(sf::Sprite* spr);
+    void draw(sf::RenderWindow& window)const;
+    void move(const sf::Vector2f& offset);
+    bool contains_mouse(const sf::RenderWindow& window)const;
 private:
     /**
      * @brief stores the suit.
@@ -138,5 +145,7 @@ private:
      * Values stored will be numeric cards as well as picture cards.
      */
     Value value_; // The value of the current card
+    sf::Sprite* card_sprite_;
+    sf::Text* card_text_;
 };
 #endif
