@@ -14,7 +14,8 @@ public:
     void RenderScreen(sf::RenderWindow& window)const override;
 
 private:
-
+    sf::RectangleShape background_;
+    
 };
 
 #endif
