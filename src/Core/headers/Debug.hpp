@@ -20,6 +20,7 @@
 #define DBG_DTOR(_MSG,_RAWPTR)
 #define DBG_MSG(_MSG)
 #define DBG_MSG_AT(_MSG,_RAWPTR) 
+#define DBG_ERR(_MSG) 
 #endif
 
 

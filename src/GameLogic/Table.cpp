@@ -21,16 +21,47 @@ Table::~Table()
     }
     DBG_DTOR("Table",this);
 }
-void Table::set_current_players(uint8_t attackPlyrIndex)
+void Table::top_up_hands()
 {
-    assert(attackPlyrIndex + 1 < this->num_players_ );
-    this->current_attacker_ = attackPlyrIndex;
-    this->current_defender_ = attackPlyrIndex + 1;
+    for(int i{count_attackers_cards()-1}; i < 6;++i)
+    {
+        if(i < 0) continue;
+        this->attacking_cards_[i] = new Card(this->deck_->pop());
+    }
+    for(int i{count_defending_cards()-1}; i < 6;++i)
+    {
+        if(i < 0) continue;
+        this->defending_cards_[i] = new Card(this->deck_->pop());
+    }
+}
+int Table::count_attackers_cards()const
+{
+    int count{0};
+    for(int i{0}; i < 6;++i)
+    {
+        if(this->attacking_cards_[i] == nullptr) ++count;
+    }
+    return count;
+}
+int Table::count_defending_cards()const
+{
+    int count{0};
+    for(int i{0}; i < 6;++i)
+    {
+        if(this->defending_cards_[i] == nullptr) ++count;
+    }
+    return count;
 }
 void Table::rotate_current_players()
 {
     this->current_attacker_ = (this->current_attacker_ + 1) % this->num_players_;
     this->current_defender_ = (this->current_defender_ + 1) % this->num_players_;
+}
+void Table::set_current_players(uint8_t attackPlyrIndex)
+{
+    assert(attackPlyrIndex + 1 < this->num_players_ );
+    this->current_attacker_ = attackPlyrIndex;
+    this->current_defender_ = attackPlyrIndex + 1;
 }
 bool Table::is_attacking_cards_empty()const
 {
@@ -101,11 +132,11 @@ void Table::clear_table()
         i = nullptr;
     }
 }   
-const std::array<const Card*,6>& Table::get_attacking_cards()const
+const std::array<Card*,6>& Table::get_attacking_cards()const
 {
     return this->attacking_cards_;
 }
-const std::array<const Card*,6>& Table::get_defending_cards()const
+const std::array<Card*,6>& Table::get_defending_cards()const
 {
     return this->defending_cards_;
 }

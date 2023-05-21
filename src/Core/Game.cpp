@@ -40,7 +40,7 @@ void Game::run()
             case _Screens::GAME_SCREEN:
                 {
                     Screen* temp_ptr{this->current_screen_};
-                    //set screen to GameScreen
+                    this->current_screen_ = new GameScreen();
                     delete temp_ptr;
                 }
                 break;

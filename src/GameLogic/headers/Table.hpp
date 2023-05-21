@@ -20,6 +20,9 @@ public:
     Table(uint8_t num_players,bool deck_size_36);
     ~Table();
 
+    void top_up_hands();
+    int count_attackers_cards()const;
+    int count_defending_cards()const;
     void rotate_current_players();
     void set_current_players(uint8_t attackPlyrIndex);
     bool is_attacking_cards_empty()const;
@@ -29,15 +32,15 @@ public:
     bool add_defending_card(int index_in_hand, int target_table_index);
     void clear_table();
 
-    const std::array<const Card*,6>& get_attacking_cards()const;
-    const std::array<const Card*,6>& get_defending_cards()const;
+    const std::array<Card*,6>& get_attacking_cards()const;
+    const std::array<Card*,6>& get_defending_cards()const;
 private:
     //the cards on tables are stored as pointers since there should be
     //no need to duplicate the cards.
     const uint8_t num_players_;
     bool attackers_turn_;
-    std::array<const Card*,6> attacking_cards_;
-    std::array<const Card*,6> defending_cards_;
+    std::array<Card*,6> attacking_cards_;
+    std::array<Card*,6> defending_cards_;
     //these will hold the indexes of the current 
     //players from the players arrays
     uint8_t current_attacker_;

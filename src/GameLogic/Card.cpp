@@ -3,12 +3,18 @@ Card::Card(Suit suit,Value value)noexcept:
     suit_(suit),
     value_(value),
     card_sprite_(nullptr),
-    card_text_(nullptr){}
+    card_text_(nullptr)
+    {
+        DBG_CTOR("Card", this);
+    }
 Card::Card(const Card& other)noexcept:
     suit_(other.suit_),
     value_(other.value_),
     card_sprite_(other.card_sprite_),
-    card_text_(other.card_text_){}
+    card_text_(other.card_text_)
+    {
+        DBG_DTOR("Card", this);
+    }
 Card::~Card()
 {
     delete this->card_sprite_;
@@ -125,6 +131,11 @@ void Card::add_sprite(sf::Sprite* spr)
 }
 void Card::draw(sf::RenderWindow& window)const
 {
+    if(this->card_sprite_ == nullptr || this->card_text_ == nullptr) 
+    {
+        DBG_MSG("Attempted to draw from null ptr");
+        return;
+    }
     window.draw(*this->card_sprite_);
     window.draw(*this->card_text_);
 }

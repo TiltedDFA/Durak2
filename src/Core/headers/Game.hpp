@@ -3,6 +3,7 @@
 
 #include "../../UI/headers/MainScreen.hpp"
 #include "../../UI/headers/SettingsScreen.hpp"
+#include "../../UI/headers/GameScreen.hpp"
 #include "SFML/Graphics.hpp"
 #include "../../GameLogic/headers/Table.hpp"
 #include "Debug.hpp"

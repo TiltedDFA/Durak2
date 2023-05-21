@@ -3,7 +3,7 @@
 
 #include <fstream>
 #include "Debug.hpp"
-
+// 1st value will be a null value, second will be the deck size
 class FileManager
 {
 public:
@@ -12,9 +12,11 @@ public:
     FileManager();
     ~FileManager();
 
-
+    void create_new_file();
+    void read_file();
 private:
-    std::fstream file_;
+    uint16_t deck_size_;
+
 
 };
 
