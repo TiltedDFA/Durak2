@@ -7,6 +7,7 @@
 #ifndef DRK_NDBG
 #include <iostream>
 #include <memory>
+#include <cstdint>
 #define __MAIN main()
 #define DBG_CTOR(_MSG,_RAWPTR)  std::cout << std::dec << "INITALISED:       " << (_MSG) << ". loc: 0x" << std::hex <<  reinterpret_cast<std::uintptr_t>(_RAWPTR) << std::endl
 #define DBG_DTOR(_MSG,_RAWPTR)  std::cout << std::dec << "DESTROYED:        " << (_MSG) << ". loc: 0x" << std::hex <<  reinterpret_cast<std::uintptr_t>(_RAWPTR) << std::endl
