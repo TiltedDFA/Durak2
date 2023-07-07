@@ -27,7 +27,7 @@ GameScreen::GameScreen()
     this->background_.setFillColor(DRK_COL::CasinoGreen);
     this->table_.top_up_hands();
     sf::Sprite* tmp_spr = new sf::Sprite();
-    tmp_spr->setTexture(Resource_Manager::get_texture());
+    tmp_spr->setTexture(Resource_Manager::get_texture(""));
 }
 GameScreen::~GameScreen()
 {
