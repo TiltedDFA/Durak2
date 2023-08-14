@@ -132,11 +132,19 @@ void Table::clear_table()
         i = nullptr;
     }
 }   
-const std::array<Card*,6>& Table::get_attacking_cards()const
+const std::array<Card*,6>& Table::view_attacking_cards()const
 {
     return this->attacking_cards_;
 }
-const std::array<Card*,6>& Table::get_defending_cards()const
+const std::array<Card*,6>& Table::view_defending_cards()const
+{
+    return this->defending_cards_;
+}
+std::array<Card*,6>& Table::get_attacking_cards()
+{
+    return this->attacking_cards_;
+}
+std::array<Card*,6>& Table::get_defending_cards()
 {
     return this->defending_cards_;
 }

@@ -32,8 +32,12 @@ public:
     bool add_defending_card(int index_in_hand, int target_table_index);
     void clear_table();
 
-    const std::array<Card*,6>& get_attacking_cards()const;
-    const std::array<Card*,6>& get_defending_cards()const;
+    const std::array<Card*,6>& view_attacking_cards()const;
+    const std::array<Card*,6>& view_defending_cards()const;
+
+    std::array<Card*,6>& get_attacking_cards();
+    std::array<Card*,6>& get_defending_cards();
+
 private:
     //the cards on tables are stored as pointers since there should be
     //no need to duplicate the cards.

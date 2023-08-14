@@ -26,8 +26,6 @@ GameScreen::GameScreen()
     this->background_.setPosition(sf::Vector2f(0,0));
     this->background_.setFillColor(DRK_COL::CasinoGreen);
     this->table_.top_up_hands();
-    sf::Sprite* tmp_spr = new sf::Sprite();
-    tmp_spr->setTexture(Resource_Manager::get_texture(""));
 }
 GameScreen::~GameScreen()
 {
@@ -46,6 +44,6 @@ void GameScreen::UpdateScreen(const sf::RenderWindow& window)
 void GameScreen::RenderScreen(sf::RenderWindow& window)const
 {
     window.draw(this->background_);
-    if(this->table_.get_attacking_cards().at(0) != nullptr) this->table_.get_attacking_cards().at(0)->draw(window);
+    if(this->table_.view_attacking_cards().at(0) != nullptr) this->table_.view_attacking_cards().at(0)->draw(window);
     this->return_.draw(window);
 }
